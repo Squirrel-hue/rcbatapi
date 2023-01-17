@@ -150,7 +150,7 @@ api_key <- ""
 secret_key <- ""
 ```
 
-The following code will then assign this to the accounts.
+The following code will then pull the wallet information and assign this to the `accounts` variable.
 
 ```
 (accounts <- rcbatapi::interact_AT_API_keys(api_key = api_key,
