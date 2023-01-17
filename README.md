@@ -25,11 +25,15 @@ The package name represents "R Coinbase Advanced Trade API."
     
 First, install the package devtools in R 
     
-`install.packages("devtools")`
+``` r
+install.packages("devtools")
+```
     
 Then 
     
-`devtools::install_github(repo = "Squirrel-hue/rcbatapi")`
+``` r
+devtools::install_github(repo = "Squirrel-hue/rcbatapi")
+```
         
     
     
