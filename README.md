@@ -159,4 +159,69 @@ The following code will then pull the wallet information and assign this to the 
                                reqPath = "/accounts"))
 ```
 
-More information will be posted regarding how to extract this information.
+More information will be posted regarding how to extract and manipulate this information.
+
+# Products
+
+## List Products
+
+``` r
+list_products <- rcbatapi::interact_AT_API_keys(api_key = api_key,
+                                                secret_key = secret_key,
+                                                method = "GET",
+                                                reqPath = "/products")
+```
+
+## Get Products
+
+``` r
+
+product_id <- "BTC-USD"
+
+reqPath <- paste0("/products/",product_id,"/")
+get_product <- rcbatapi::interact_AT_API_keys(api_key = api_key,
+                                              secret_key = secret_key,
+                                              method = "GET",
+                                              reqPath = reqPath)
+get_product
+```
+
+### Get Product Candles
+
+Chose the desired product, start date ("YYYY-MM-DD"), end date ("YYYY-MM-DD"), and granularity
+(ONE_MINUTE, FIVE_MINUTE, FIFTEEN_MINUTE, THIRTY_MINUTE, ONE_HOUR, TWO_HOUR, SIX_HOUR, or ONE_DAY)
+
+``` r
+product_id <- "BTC-USD"
+start <- "2022-01-01 09:10:00 CST"
+end <- "2022-01-01 22:05:00 CST"
+granularity <- "FIVE_MINUTE"
+
+start_unix <- format(as.numeric(as.POSIXct(start)), digits = 10)
+end_unix <- format(as.numeric(as.POSIXct(end)), digits = 10)
+
+reqPath <- paste0("/products/",product_id,"/candles")
+query   <- paste0("?start=",start_unix,"&end=",end_unix,"&granularity=",granularity)
+# reqPath <- paste0("/products/",product_id,"/candles?granularity=",granularity)
+get_product_candles <- rcbatapi::interact_AT_API_keys(api_key = api_key,
+                                                      secret_key = secret_key,
+                                                      method = "GET",
+                                                      reqPath = reqPath,
+                                                      query = query)
+get_product_candles
+```
+
+### Get Market Trades
+
+``` r
+product_id <- "BTC-USD"
+limit <- 1000
+
+reqPath <- paste0("/products/",product_id,"/ticker")
+query   <- paste0("?limit=",limit)
+get_market_trades <- rcbatapi::interact_AT_API_keys(api_key = api_key,
+                                                      secret_key = secret_key,
+                                                      method = "GET",
+                                                      reqPath = reqPath)
+get_market_trades
+```
