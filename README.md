@@ -27,7 +27,7 @@ First, install the package devtools in R
     
 `install.packages("devtools")`
     
-    Then 
+Then 
     
 `devtools::install_github(repo = "Squirrel-hue/rcbatapi")`
         
