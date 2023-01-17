@@ -39,14 +39,14 @@ devtools::install_github(repo = "Squirrel-hue/rcbatapi")
     
 There are two ways to use the package.
 
-1.  Have a string of function to obtain the desired behavior (demonstration below for market orders).
+1.  Have a string of function to obtain the desired behavior (demonstrated below for market orders and many other endpoints).
 2.  Add the API key(s) and secret key(s) to the authentication function. This will then allow you to authenticate automatically. But make sure that the function is not shared with anyone else, or you will have given away your secret keys. You can have several wallets, just make sure that each one is properly identified and selected. This will be discussed below (coming soon!)
 
 ## Obtain and enter API Keys for Wallet
 
 You will create these (or have created these) on Coinbase Advance Trading API. Make sure that you protect them (especially your secret key). Information can be found at <https://help.coinbase.com/en/cloud/api/coinbase/key-creation>.
 
-Assign Keys as variables in R
+Assign keys as variables in R:
 
 ``` r
 api_key <- "" # assign the variable api_key in quotes
@@ -68,7 +68,7 @@ This code will provide that for you.
 (quote <- unlist(strsplit(pair, split ="-"))[2]) # The last currency listed (USD in this example)
 ```
 
-Once you have assigned `api_key`, `secret_key` and `pair`, this code run by this function should work. The code in the function can be examined by navigating to the R folder.
+Once you have assigned `api_key`, `secret_key` and `pair`, the code run by this function should work. The code in the function can be examined by navigating to the R folder.
 
 ``` r
 (pair_info <- rcbatapi::interact_AT_API_keys(api_key = api_key,
