@@ -1,5 +1,19 @@
 # Examples of how to use the package
 
+## Setup
+
+1.  Install R
+2.  (Optional) I recommend that you install RStudio
+3.  On Windows, install RTools. Not needed on macOS and Linux.
+4.  Either
+    a.  Install `rcbatapi` package, or
+    b.  Copy and initialize the necessary functions.
+
+There are two ways to use the package.
+
+1.  Have a string of function to obtain the solution (demonstration below).
+2.  Add the api key(s) and secret key(s) to the authentication function. This will then allow you to authenticate automatically. But make sure that the function is not shared with anyone else, or you will have given away your secret keys. You can have several wallets, just make sure that each one is properly identified and selected. This will be discussed below.
+
 ## Obtain and enter API Keys for Wallet
 
 You will create these (or have created these) on Coinbase Advance Trading API. Make sure that you protect them (especially your secret key).
@@ -40,11 +54,15 @@ Once you have assigned `api_key`, `secret_key` and `pair`, this code should work
 
 `pair_info` contains a lot of useful information. Some of it is highlighted below
 
-The Maximum Number of digits that can be used in expressing the quantity of Bitcoin quantity to transact.
+### Maximum Base Currency Precision Digits
+
+The maximum number of digits that can be used in expressing the quantity of Bitcoin quantity to transact.
 
 ``` r
 base_increment <- -log10(as.numeric(pair_info$base_increment))
 ```
+
+### Maximum Quote Currency Precision Digits
 
 The maximum number of digits that can be used in expressing the dollar quantity. If it is two (2), this means it can be expressed to \$1.00
 
@@ -52,13 +70,17 @@ The maximum number of digits that can be used in expressing the dollar quantity.
 quote_increment <- -log10(as.numeric(pair_info$quote_increment))
 ```
 
+### Smallest Base Currency Quantity
+
 The smallest quantity of Bitcoin that can be transacted
 
 ``` r
 base_min_size <- pair_info$base_min_size
 ```
 
-The smallest quantity of Bitcoin that can be transacted. At this point is in one (1), which means \$1.00.
+### Smallest Quote Currency Quantity
+
+The smallest number of USD that can be transacted. At this point is in one (1), which means \$1.00.
 
 ``` r
 quote_min_size <- pair_info$quote_min_size
@@ -70,7 +92,7 @@ quote_min_size <- pair_info$quote_min_size
 BTCUSD_price <- as.numeric(pair_info$price)
 ```
 
-### How to Place a $1.00 Bitcoin Market Order
+### How to Place a \$1.00 Bitcoin Market Order
 
 Now that we have obtained information about the pairs, we can proceed to place a market order.
 
@@ -108,3 +130,5 @@ market_sell <- interact_AT_API_keys(api_key = api_key,
                                     reqPath = "/orders",
                                     body = market_sell_payload)
 ```
+
+## Obtain Information About Wallet (Coming Soon)
