@@ -14,6 +14,7 @@ The package name represents "R Coinbase Advanced Trade API."
 2.  (Optional) I recommend that you install RStudio (https://posit.co/)
 3.  On Windows, is is possible that you may need to install RTools (https://cran.r-project.org/bin/windows/Rtools/). Not needed on macOS and Linux.  I am developing on Linux and have not tested it yet on Windows.
 4.  Either
+    
     a.  Install `rcbatapi` package, or
     b.  Copy and initialize the necessary functions.
 
