@@ -15,8 +15,8 @@ The package name represents "R Coinbase Advanced Trade API."
 3.  On Windows, is is possible that you may need to install RTools (https://cran.r-project.org/bin/windows/Rtools/). Not needed on macOS and Linux.  I am developing on Linux and have not tested it yet on Windows.
 4.  Either
     
-    a.  Install `rcbatapi` package, or
-    b.  Copy and initialize the necessary functions.
+    a. Install `rcbatapi` package, or
+    b. Copy and initialize the necessary functions.
 
 There are two ways to use the package.
 
@@ -136,10 +136,10 @@ market_sell_payload <- rcbatapi::market_market_ioc_sell(client_order_id = "",
                                                         base_increment = base_increment)
 
 market_sell <- rcbatapi::interact_AT_API_keys(api_key = api_key, 
-                                             secret_key = secret_key,
-                                             method = "POST",
-                                             reqPath = "/orders",
-                                             body = market_sell_payload)
+                                              secret_key = secret_key,
+                                              method = "POST",
+                                              reqPath = "/orders",
+                                              body = market_sell_payload)
 ```
 
 
@@ -160,12 +160,12 @@ The following code will then pull the wallet information and assign this to the 
 
 ``` r
 (accounts <- rcbatapi::interact_AT_API_keys(api_key = api_key,
-                               secret_key = secret_key,
-                               method = "GET",
-                               reqPath = "/accounts"))
+                                            secret_key = secret_key,
+                                            method = "GET",
+                                            reqPath = "/accounts"))
 ```
 
-Can also Get using paginations and cursor if `has_next` is true.
+Can also `Get Accounts` using paginations and cursor if `has_next` is true.
 This code will not work is `has_next` is false.
 
 ``` r
@@ -274,9 +274,9 @@ limit <- 1000
 reqPath <- paste0("/products/",product_id,"/ticker")
 query   <- paste0("?limit=",limit)
 get_market_trades <- rcbatapi::interact_AT_API_keys(api_key = api_key,
-                                                      secret_key = secret_key,
-                                                      method = "GET",
-                                                      reqPath = reqPath)
+                                                    secret_key = secret_key,
+                                                    method = "GET",
+                                                    reqPath = reqPath)
 get_market_trades
 ```
 

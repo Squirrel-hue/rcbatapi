@@ -15,7 +15,6 @@
 #' order
 #' @export
 
-
 market_market_ioc_buy <- function(client_order_id = "",
                                   product_id = "BTC-USD",
                                   quote_size = 0,
