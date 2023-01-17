@@ -204,8 +204,10 @@ start_unix <- format(as.numeric(as.POSIXct(start)), digits = 10)
 end_unix <- format(as.numeric(as.POSIXct(end)), digits = 10)
 
 reqPath <- paste0("/products/",product_id,"/candles")
-query   <- paste0("?start=",start_unix,"&end=",end_unix,"&granularity=",granularity)
-# reqPath <- paste0("/products/",product_id,"/candles?granularity=",granularity)
+query   <- paste0("?start=",start_unix,
+                  "&end=",end_unix,
+                  "&granularity=",granularity)
+
 get_product_candles <- rcbatapi::interact_AT_API_keys(api_key = api_key,
                                                       secret_key = secret_key,
                                                       method = "GET",
@@ -230,3 +232,28 @@ get_market_trades <- rcbatapi::interact_AT_API_keys(api_key = api_key,
                                                       reqPath = reqPath)
 get_market_trades
 ```
+
+# Fees
+
+### Get Transactions Summary
+
+Note that it seems that start_date and end_date are optional. The code can be modified so that they would not need to be specified.
+
+``` r
+start_date <-  "2023-01-01"
+end_date   <-  "2023-01-15"
+user_native_currency <- "USD"
+product_type <- "SPOT"
+
+reqPath <- paste0("/transaction_summary")
+query   <- paste0("?start_date", start_date,
+                  "&end_date", end_date,
+                  "&user_native_currency=", user_native_currency,
+                  "&product_type=", product_type)
+get_transactions_summary <- rcbatapi::interact_AT_API_keys(api_key = api_key,
+                                                           secret_key = secret_key,
+                                                           method = "GET",
+                                                           reqPath = reqPath)
+get_transactions_summary
+```
+
