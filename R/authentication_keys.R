@@ -1,10 +1,14 @@
 #' Authentication Process for Coinbase Advanced Trading
 #'
+#' In this version of the \code{authentication} function, the api key(s) and the
+#' secret key(s) for a wallet are supplied as arguments to the function.
+#'
 #' @param api_key The api key assigned to the Advanced Trading Wallet
 #' @param secret_key The secret key assigned to the Advanced Trading Wallet
 #' @param method Select whether to send a \code{GET} or \code{POST} request
 #' @param reqPath The request path, can omit \code{"/v3/api/brokerage"}
-#' @param body The body/payload to pass to the API, usually used with method \code{"POST"}
+#' @param body The body/payload to pass to the API, usually used with method
+#'  \code{"POST"}
 #' @return The api_key, the cb_signature, and the timestamp to pass to the api.
 #' @export
 
