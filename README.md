@@ -32,7 +32,7 @@ There are two ways to use the package.
 
 You will create these (or have created these) on Coinbase Advance Trading API. Make sure that you protect them (especially your secret key). Information can be found at <https://help.coinbase.com/en/cloud/api/coinbase/key-creation>.
 
-Assign Keys as variables in R
+Assign keys as variables in R:
 
 ``` r
 api_key <- "" # assign the variable api_key in quotes
