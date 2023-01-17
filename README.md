@@ -44,9 +44,9 @@ pair <- "BTC-USD" # The Pair that you wish to obtain information about.
 
 ## Get Pair Information (BTC-USD in this case)
 
-You will need to know what are the minimum sizes and dollar amounts that you can trade.
+You will need to know what are the minimum sizes and dollar amounts that you can trade. The following code will provide that for you.
 
-This code will provide that for you.
+First, extract the base and quote currencies from the `pair` supplied above. Could use ETH-USD, or ETH-BTC, or any other pair supported on Coinbase.
 
 ``` r
 (base <- unlist(strsplit(pair, split = "-"))[1]) # The first currency listed (BTC in this example) 
@@ -54,7 +54,7 @@ This code will provide that for you.
 (quote <- unlist(strsplit(pair, split ="-"))[2]) # The last currency listed (USD in this example)
 ```
 
-Once you have assigned `api_key`, `secret_key` and `pair`, this code run by this function should work. The code in the function can be examined by navigating to the R folder.
+Once you have assigned `api_key`, `secret_key` and `pair`, this code run by this function should work. The code in this function (and any other functions) can be examined by navigating to the R folder.
 
 ``` r
 (pair_info <- rcbatapi::interact_AT_API_keys(api_key = api_key,
@@ -64,7 +64,7 @@ Once you have assigned `api_key`, `secret_key` and `pair`, this code run by this
                                                               pair)))
 ```
 
-`pair_info` contains a lot of useful information. Some of it is highlighted below
+`pair_info` contains a lot of useful information; some of it is highlighted below.
 
 ### Maximum Base Currency Precision Digits
 
@@ -97,7 +97,7 @@ The smallest quantity of Bitcoin that can be transacted.
 
 ### Smallest Quote Currency Quantity
 
-The smallest number of USD that can be transacted. At this point is in one (1), which means a minimum of \$1.00.  This could change in the future.
+The smallest number of USD that can be transacted. At this point it is one (1), which means a minimum of \$1.00.  This could change in the future.
 
 ``` r
 (quote_min_size <- pair_info$quote_min_size)
@@ -161,7 +161,7 @@ api_key <- ""
 secret_key <- ""
 ```
 
-The following code will then pull the wallet information and assign this to the `accounts` variable.
+The following function call will then pull the wallet information and assign this to the `accounts` variable.
 
 ``` r
 (accounts <- rcbatapi::interact_AT_API_keys(api_key = api_key,
@@ -170,11 +170,11 @@ The following code will then pull the wallet information and assign this to the 
                                             reqPath = "/accounts"))
 ```
 
-Can also `Get Accounts` using paginations and cursor if `has_next` is true. This code will not work is `has_next` is false.
+Can also `Get Accounts` using paginations and cursor if `has_next` is true. This code will not work if `has_next` is false.
 
 ``` r
-limit  <- 49
-cursor <- "8"
+limit  <- 49  # Should be an integer.
+cursor <- "8" # Should be a string.
 query <- paste0("?limit=", limit,
                "&cursor=", cursor)
 list_accounts <- rcbatapi::interact_AT_API_keys(api_key = api_key,
@@ -187,7 +187,7 @@ list_accounts
 
 ### Get Accounts
 
-Can get uuid by using `accounts$account[[1]]$uuid` or `accounts$account[[2]]$uuid` after having use the code. Depending on the number of currencies linked to wallet and api key and secret key, there will be more numbers that can be added to the [[x]] following `accounts$account`.
+Can get uuid by using `accounts$account[[1]]$uuid` or `accounts$account[[2]]$uuid` after having use the code. Depending on the number of currencies linked to wallet and api key and secret key, there may be more numbers that can be added to the `[[x]]` following `accounts$account`. They wallet linked to the keys in this example only granted BTC and USD access.
 
 ``` r
 (accounts <- rcbatapi::interact_AT_API_keys(api_key = api_key,
@@ -225,7 +225,7 @@ list_products <- rcbatapi::interact_AT_API_keys(api_key = api_key,
 
 ### Get Products
 
-Edit the string in `product_id`
+Edit the string in `product_id`.
 
 ``` r
 product_id <- "BTC-USD"
@@ -240,7 +240,7 @@ get_product
 
 ### Get Product Candles
 
-Chose the desired product, start date ("YYYY-MM-DD"), end date ("YYYY-MM-DD"), and granularity (ONE_MINUTE, FIVE_MINUTE, FIFTEEN_MINUTE, THIRTY_MINUTE, ONE_HOUR, TWO_HOUR, SIX_HOUR, or ONE_DAY)
+Chose the desired product_id, start date ("YYYY-MM-DD HH:MM:SS TZ"), end date ("YYYY-MM-DD  HH:MM:SS TZ"), and granularity (ONE_MINUTE, FIVE_MINUTE, FIFTEEN_MINUTE, THIRTY_MINUTE, ONE_HOUR, TWO_HOUR, SIX_HOUR, or ONE_DAY).
 
 Edit the strings in `product_id`, `start`, `end`, and `granularity`.
 
