@@ -36,7 +36,7 @@ secret_key <- "" # assign the variable secret_key in quotes
 pair <- "BTC-USD" # The Pair that you wish to obtain information about.
 ```
 
-## Get Pair Information. BTC-USD in this case
+## Get Pair Information (BTC-USD in this case)
 
 You will need to know what are the minimum sizes and dollar amounts that you can trade.
 
