@@ -22,11 +22,11 @@ It is also hoped that this documentation may assist with specification questions
 
     a.  Install `rcbatapi` package
     
-        -  First, install the package devtools in R 
+    First, install the package devtools in R 
     
         ```install.packages("devtools")```
     
-        -  Then 
+    Then 
     
         ```devtools::install_github(repo = "Squirrel-hue/rcbatapi")```,
         
