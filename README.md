@@ -174,8 +174,9 @@ list_products <- rcbatapi::interact_AT_API_keys(api_key = api_key,
 
 ## Get Products
 
-``` r
+Edit the string in `product_id`
 
+``` r
 product_id <- "BTC-USD"
 
 reqPath <- paste0("/products/",product_id,"/")
@@ -190,6 +191,8 @@ get_product
 
 Chose the desired product, start date ("YYYY-MM-DD"), end date ("YYYY-MM-DD"), and granularity
 (ONE_MINUTE, FIVE_MINUTE, FIFTEEN_MINUTE, THIRTY_MINUTE, ONE_HOUR, TWO_HOUR, SIX_HOUR, or ONE_DAY)
+
+Edit the strings in `product_id`, `start`, `end`, and `granularity`.
 
 ``` r
 product_id <- "BTC-USD"
@@ -212,6 +215,8 @@ get_product_candles
 ```
 
 ### Get Market Trades
+
+Edit `product_id` and `limit`.
 
 ``` r
 product_id <- "BTC-USD"
