@@ -6,7 +6,7 @@
 \usage{
 limit_limit_gtc(
   client_order_id = "",
-  product_id = c("BTC-USD", "DOGE-USD", "ETH-USD", "LTC-USD"),
+  product_id = "BTC-USD",
   side = c("BUY", "SELL", "buy", "sell", "B", "b", "S", "s"),
   base_size = 0,
   limit_price = 0
@@ -15,11 +15,11 @@ limit_limit_gtc(
 \arguments{
 \item{client_order_id}{either assign, or a random number will be assigned automatically}
 
-\item{product_id}{What pair to transact}
+\item{product_id}{What pair to transact, for example, BTC-USD}
 
 \item{side}{"BUY" or "SELL"}
 
-\item{base_size}{quantity to purchase (in terms of )}
+\item{base_size}{quantity to purchase (in terms of first listed currency.)}
 
 \item{limit_price}{maximum to receive for sell, minimum to pay for buy (USD)}
 }
@@ -27,5 +27,7 @@ limit_limit_gtc(
 A string to pass as payload/body for the limit Good-Til-Cancelled
 }
 \description{
-Function for Limit Good-Til-Cancelled Orders via Advanced Trade API
+Remember,
+Base currency is the first listed (e.g., \code{BTC} in \code{BTC-USD})
+Quote currency is the last listed (e.g., \code{USD} in \code{BTC-USD})
 }

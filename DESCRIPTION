@@ -10,6 +10,7 @@ Description: Implements authorization and other functions to trade crypto using
     order endpoints.
     This package is offered as is without any promise or guarantee of suitability
     for any given purpose.  Test it out with small values.
+Depends: R (>= 4.1.0)
 License: GPL-3
 Encoding: UTF-8
 LazyData: true

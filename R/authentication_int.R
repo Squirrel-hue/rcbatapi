@@ -5,8 +5,9 @@
 #'
 #' @param wallet Select the wallet (and permissions)
 #' @param method Select whether to send a \code{GET} or \code{POST} request
-#' @param reqPath The request path, can omit \code{"/v3/api/brokerage"}
-#' @param body The body/payload to pass to the API, usually used with method \code{"POST"}
+#' @param reqPath The request path, omit \code{"/v3/api/brokerage"}
+#' @param body The body/payload to pass to the API, usually used with method
+#'  \code{"POST"}
 #' @export
 
 authentication_int <- function(wallet = c("ADA", "ATOM", "BTC", "DOGE",
@@ -61,8 +62,9 @@ authentication_int <- function(wallet = c("ADA", "ATOM", "BTC", "DOGE",
 #'
 #' @param wallet Select the wallet (and permissions)
 #' @param method Select whether to send a \code{GET} or \code{POST} request
-#' @param reqPath The request path, can omit \code{"/v3/api/brokerage"}
-#' @param body The body/payload to pass to the API, usually used with method \code{"POST"}
+#' @param reqPath The request path, omit \code{"/v3/api/brokerage"}
+#' @param body The body/payload to pass to the API, usually used with method
+#'  \code{"POST"}
 #' @export
 
 authentication <- function(wallet = c("BTC","USD", "DOGE"),

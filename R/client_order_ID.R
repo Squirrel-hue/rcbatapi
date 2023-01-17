@@ -1,5 +1,6 @@
 #' Generate Random Hex String of Length n
 #'
+#' This creates the building blocks to generate unique client_order_ID.
 #'
 #' @param n the number of consecutive strings to put in a hex string
 #' @export

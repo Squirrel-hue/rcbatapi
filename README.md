@@ -19,8 +19,8 @@ The package name represents "R Coinbase Advanced Trade API."
 
 There are two ways to use the package.
 
-1.  Have a string of function to obtain the solution (demonstration below).
-2.  Add the api key(s) and secret key(s) to the authentication function. This will then allow you to authenticate automatically. But make sure that the function is not shared with anyone else, or you will have given away your secret keys. You can have several wallets, just make sure that each one is properly identified and selected. This will be discussed below.
+1.  Have a string of function to obtain the desired behavior (demonstration below for market orders).
+2.  Add the API key(s) and secret key(s) to the authentication function. This will then allow you to authenticate automatically. But make sure that the function is not shared with anyone else, or you will have given away your secret keys. You can have several wallets, just make sure that each one is properly identified and selected. This will be discussed below (coming soon!)
 
 ## Obtain and enter API Keys for Wallet
 

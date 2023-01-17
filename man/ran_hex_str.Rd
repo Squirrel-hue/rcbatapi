@@ -10,5 +10,5 @@ ran_hex_str(n = 4)
 \item{n}{the number of consecutive strings to put in a hex string}
 }
 \description{
-Generate Random Hex String of Length n
+This creates the building blocks to generate unique client_order_ID.
 }

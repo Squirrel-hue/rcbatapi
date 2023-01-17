@@ -1,5 +1,6 @@
 #' Function for Market Immediate-or-Cancel Order via Advanced Trade API
 #'
+#' Remember,
 #' Base currency is the first listed (e.g., \code{BTC} in \code{BTC-USD})
 #' Quote currency is the last listed (e.g., \code{USD} in \code{BTC-USD})
 #'

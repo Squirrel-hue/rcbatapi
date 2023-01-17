@@ -16,9 +16,10 @@ authentication(
 
 \item{method}{Select whether to send a \code{GET} or \code{POST} request}
 
-\item{reqPath}{The request path, can omit \code{"/v3/api/brokerage"}}
+\item{reqPath}{The request path, omit \code{"/v3/api/brokerage"}}
 
-\item{body}{The body/payload to pass to the API, usually used with method \code{"POST"}}
+\item{body}{The body/payload to pass to the API, usually used with method
+\code{"POST"}}
 }
 \description{
 Note: Will need to edit this to add the appropriate api_key(s) and

@@ -1,19 +1,20 @@
 #' Function for Limit Good-Til-Cancelled Orders via Advanced Trade API
 #'
+#' Remember,
+#' Base currency is the first listed (e.g., \code{BTC} in \code{BTC-USD})
+#' Quote currency is the last listed (e.g., \code{USD} in \code{BTC-USD})
+#'
 #' @param client_order_id either assign, or a random number will be assigned automatically
-#' @param product_id  What pair to transact
+#' @param product_id  What pair to transact, for example, BTC-USD
 #' @param side "BUY" or "SELL"
-#' @param base_size quantity to purchase (in terms of )
+#' @param base_size quantity to purchase (in terms of first listed currency.)
 #' @param limit_price maximum to receive for sell, minimum to pay for buy (USD)
 #' @return A string to pass as payload/body for the limit Good-Til-Cancelled
 #' @export
 
 # need to remove the wallet variable.
 limit_limit_gtc <- function(client_order_id = "",
-                            product_id = c("BTC-USD",
-                                           "DOGE-USD",
-                                           "ETH-USD",
-                                           "LTC-USD"),
+                            product_id = "BTC-USD",
                             side = c("BUY","SELL", "buy", "sell",
                                      "B", "b", "S", "s"),
                             base_size = 0,

@@ -27,6 +27,7 @@ A string to pass as payload/body for the Market Immediate-or_Cancel
 order
 }
 \description{
+Remember,
 Base currency is the first listed (e.g., \code{BTC} in \code{BTC-USD})
 Quote currency is the last listed (e.g., \code{USD} in \code{BTC-USD})
 }
