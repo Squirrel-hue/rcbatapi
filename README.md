@@ -210,10 +210,12 @@ Can get uuid by using `accounts$account[[1]]$uuid` or `accounts$account[[2]]$uui
 Can obtain information about a specific account.
 
 ``` r
-account_uuid <- ""
-account_uuid <- accounts$account[[1]]$uuid
-account_uuid <- accounts$account[[2]]$uuid
+account_uuid <- accounts$account[[1]]$uuid # Select this one, or
+# account_uuid <- accounts$account[[2]]$uuid # or this one
+# account_uuid <- "" # or enter it manually
 
+# Make sure you select a uuid; the last command will only have an empty string
+# You can uncomment (remove the leading "#") to select different lines.
 reqPath <- paste0("/accounts/", account_uuid)
 get_account <- rcbatapi::interact_AT_API_keys(api_key = api_key,
                                secret_key = secret_key,
