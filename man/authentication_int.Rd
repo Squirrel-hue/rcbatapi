@@ -22,6 +22,10 @@ authentication_int(
 \code{"POST"}}
 }
 \description{
+In this version of the \code{authentication} function, the api key(s) and the
+ secret key(s) for a wallet are stored internally in the function.
+}
+\details{
 Note: Will need to edit this to add the appropriate api_key(s) and
 secret_key(s) for the relevant wallet(s). Otherwise, it will not work.
 }

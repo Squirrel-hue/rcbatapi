@@ -67,15 +67,17 @@ Once you have assigned `api_key`, `secret_key` and `pair`, this code should work
 The maximum number of digits that can be used in expressing the quantity of Bitcoin quantity to transact.
 
 ``` r
-base_increment <- -log10(as.numeric(pair_info$base_increment))
+(base_increment <- -log10(as.numeric(pair_info$base_increment)))
 ```
+
+The parenthesis around the expression causes R to print the result.  Otherwise, you would need to type `base_increment` to see the result.
 
 ### Maximum Quote Currency Precision Digits
 
 The maximum number of digits that can be used in expressing the dollar quantity. If it is two (2), this means it can be expressed to \$1.00
 
 ``` r
-quote_increment <- -log10(as.numeric(pair_info$quote_increment))
+(quote_increment <- -log10(as.numeric(pair_info$quote_increment)))
 ```
 
 ### Smallest Base Currency Quantity
@@ -83,7 +85,7 @@ quote_increment <- -log10(as.numeric(pair_info$quote_increment))
 The smallest quantity of Bitcoin that can be transacted
 
 ``` r
-base_min_size <- pair_info$base_min_size
+(base_min_size <- pair_info$base_min_size)
 ```
 
 ### Smallest Quote Currency Quantity
@@ -91,13 +93,13 @@ base_min_size <- pair_info$base_min_size
 The smallest number of USD that can be transacted. At this point is in one (1), which means \$1.00.
 
 ``` r
-quote_min_size <- pair_info$quote_min_size
+(quote_min_size <- pair_info$quote_min_size)
 ```
 
 # Get the price of Bitcoin in dollars
 
 ``` r
-BTCUSD_price <- as.numeric(pair_info$price)
+(BTCUSD_price <- as.numeric(pair_info$price))
 ```
 
 ### How to Place a \$1.00 Bitcoin Market Buy Order
@@ -111,11 +113,11 @@ market_buy_payload <- rcbatapi::market_market_ioc_buy(client_order_id ="",
                                                       quote_increment = quote_increment)
 
 
-market_buy <- interact_AT_API_keys(api_key = api_key, 
-                                    secret_key = secret_key, 
-                                    method = "POST", 
-                                    reqPath = "/orders",
-                                    body = market_buy_payload)
+market_buy <- rcbatapi::interact_AT_API_keys(api_key = api_key, 
+                                             secret_key = secret_key, 
+                                             method = "POST",
+                                             reqPath = "/orders",
+                                             body = market_buy_payload)
 ```
 
 Note that you could also use `product_id = pair` as the second argument to `rcbatapi::market_market_ioc_buy`
@@ -132,11 +134,29 @@ market_sell_payload <- rcbatapi::market_market_ioc_sell(client_order_id = "",
                                                         base_size = 1/BTCUSD_price, 
                                                         base_increment = base_increment)
 
-market_sell <- interact_AT_API_keys(api_key = api_key, 
-                                    secret_key = secret_key,
-                                    method = "POST",
-                                    reqPath = "/orders",
-                                    body = market_sell_payload)
+market_sell <- rcbatapi::interact_AT_API_keys(api_key = api_key, 
+                                             secret_key = secret_key,
+                                             method = "POST",
+                                             reqPath = "/orders",
+                                             body = market_sell_payload)
 ```
 
-## Obtain Information About Wallet (Coming Soon)
+## Obtain Information About Wallet or Account
+
+Initialize your api key and secret key for the wallet in question (that is, put the required numbers in between the quotation marks).
+
+``` r
+api_key <- ""
+secret_key <- ""
+```
+
+The following code will then assign this to the accounts.
+
+```
+(accounts <- rcbatapi::interact_AT_API_keys(api_key = api_key,
+                               secret_key = secret_key,
+                               method = "GET",
+                               reqPath = "/accounts"))
+```
+
+More information will be posted regarding how to extract this information.

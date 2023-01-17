@@ -21,11 +21,13 @@ authentication_keys(
 
 \item{reqPath}{The request path, can omit \code{"/v3/api/brokerage"}}
 
-\item{body}{The body/payload to pass to the API, usually used with method \code{"POST"}}
+\item{body}{The body/payload to pass to the API, usually used with method
+\code{"POST"}}
 }
 \value{
 The api_key, the cb_signature, and the timestamp to pass to the api.
 }
 \description{
-Authentication Process for Coinbase Advanced Trading
+In this version of the \code{authentication} function, the api key(s) and the
+secret key(s) for a wallet are supplied as arguments to the function.
 }
