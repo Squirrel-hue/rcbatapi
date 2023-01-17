@@ -208,9 +208,9 @@ get_account <- rcbatapi::interact_AT_API_keys(api_key = api_key,
 ```
 More information will be posted regarding how to extract and manipulate this information.
 
-# Products
+## Products
 
-## List Products
+### List Products
 
 ``` r
 list_products <- rcbatapi::interact_AT_API_keys(api_key = api_key,
@@ -219,7 +219,7 @@ list_products <- rcbatapi::interact_AT_API_keys(api_key = api_key,
                                                 reqPath = "/products")
 ```
 
-## Get Products
+### Get Products
 
 Edit the string in `product_id`
 
