@@ -1,10 +1,18 @@
 # Examples of how to use the package
 
+## Introduction
+
+Implements authorization and other functions to trade crypto using  the Coinbase Advanced Trading API.  There is a general function that permits the accessing of API endpoints, as well as functions that assist with the order endpoints.
+
+This package is offered as is without any promise or guarantee of suitability for any given purpose.  Test it out with small values.
+
+The package name represents "R Coinbase Advanced Trade API."
+
 ## Setup
 
-1.  Install R
-2.  (Optional) I recommend that you install RStudio
-3.  On Windows, install RTools. Not needed on macOS and Linux.
+1.  Install R (https://cran.r-project.org/)
+2.  (Optional) I recommend that you install RStudio (https://posit.co/)
+3.  On Windows, is is possible that you may need to install RTools (https://cran.r-project.org/bin/windows/Rtools/). Not needed on macOS and Linux.  I am developing on Linux and have not tested it yet on Windows.
 4.  Either
     a.  Install `rcbatapi` package, or
     b.  Copy and initialize the necessary functions.
@@ -92,7 +100,7 @@ quote_min_size <- pair_info$quote_min_size
 BTCUSD_price <- as.numeric(pair_info$price)
 ```
 
-### How to Place a \$1.00 Bitcoin Market Order
+### How to Place a \$1.00 Bitcoin Market Buy Order
 
 Now that we have obtained information about the pairs, we can proceed to place a market order.
 
@@ -114,7 +122,7 @@ Note that you could also use `product_id = pair` as the second argument to `rcba
 
 If you evaluate the variable `market_buy_payload` after running the first line above, it will provide you with the string that needs to be passed to the API.
 
-### How to sell \$1.00 worth of Bitcoin
+### How to Place a \$1.00 Bitcoin Market Sell Order
 
 Using all the same code from above.
 
