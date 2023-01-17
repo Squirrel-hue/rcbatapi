@@ -18,9 +18,12 @@ The package name represents "R Coinbase Advanced Trade API."
 
 4.  Either
 
-    a.  Install `rcbatapi` package,
+    a.  Install `rcbatapi` package, or
+    b.  Copy and initialize the necessary functions.
+
+### If you choose to install the package `rcbatapi`
     
-    First, install the package devtools in R 
+First, install the package devtools in R 
     
 `install.packages("devtools")`
     
@@ -29,11 +32,7 @@ The package name represents "R Coinbase Advanced Trade API."
 `devtools::install_github(repo = "Squirrel-hue/rcbatapi")`
         
     
-    or
     
-    
-    b.  Copy and initialize the necessary functions.
-
 There are two ways to use the package.
 
 1.  Have a string of function to obtain the desired behavior (demonstration below for market orders).
