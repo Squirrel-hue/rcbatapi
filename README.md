@@ -141,7 +141,12 @@ market_sell <- rcbatapi::interact_AT_API_keys(api_key = api_key,
                                              body = market_sell_payload)
 ```
 
-## Obtain Information About Wallet or Account
+
+## Accounts
+
+### List Accounts
+
+Obtain Information About Wallet or Account; or get a list of authenticated accounts for the current user.
 
 Initialize your api key and secret key for the wallet in question (that is, put the required numbers in between the quotation marks).
 
@@ -152,13 +157,54 @@ secret_key <- ""
 
 The following code will then pull the wallet information and assign this to the `accounts` variable.
 
-```
+``` r
 (accounts <- rcbatapi::interact_AT_API_keys(api_key = api_key,
                                secret_key = secret_key,
                                method = "GET",
                                reqPath = "/accounts"))
 ```
 
+Can also Get using paginations and cursor if `has_next` is true.
+This code will not work is `has_next` is false.
+
+``` r
+limit  <- 49
+cursor <- "8"
+query <- paste0("?limit=", limit,
+               "&cursor=", cursor)
+list_accounts <- rcbatapi::interact_AT_API_keys(api_key = api_key,
+                                                secret_key = secret_key,
+                                                method = "GET",
+                                                reqPath = "/accounts",
+                                                query = query)
+list_accounts
+```
+
+
+### Get Accounts
+
+Can get uuid by using `accounts$account[[1]]$uuid` or `accounts$account[[2]]$uuid` after having use the code. Depending on the number of currencies linked to wallet and api key and secret key, there will be more numbers that can be added to the [[x]] following `accounts$account`.
+
+``` r
+(accounts <- rcbatapi::interact_AT_API_keys(api_key = api_key,
+                               secret_key = secret_key,
+                               method = "GET",
+                               reqPath = "/accounts"))
+```
+
+Can obtain information about a specific account.
+
+``` r
+account_uuid <- ""
+account_uuid <- accounts$account[[1]]$uuid
+account_uuid <- accounts$account[[2]]$uuid
+
+reqPath <- paste0("/accounts/", account_uuid)
+get_account <- rcbatapi::interact_AT_API_keys(api_key = api_key,
+                               secret_key = secret_key,
+                               method = "GET",
+                               reqPath = reqPath)
+```
 More information will be posted regarding how to extract and manipulate this information.
 
 # Products
