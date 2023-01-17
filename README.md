@@ -8,8 +8,6 @@ This package is offered as is without any promise or guarantee of suitability fo
 
 The package name represents "R Coinbase Advanced Trade API."
 
-It is also hoped that this documentation may assist with specification questions that may arise in other programming languages.  Wishing you happy coding and successful trading!
-
 ## Setup
 
 1.  Install R (<https://cran.r-project.org/>)
@@ -20,17 +18,21 @@ It is also hoped that this documentation may assist with specification questions
 
 4.  Either
 
-    a.  Install `rcbatapi` package
+    a.  Install `rcbatapi` package,
     
     First, install the package devtools in R 
     
-        ```install.packages("devtools")```
+`install.packages("devtools")`
     
     Then 
     
         ```devtools::install_github(repo = "Squirrel-hue/rcbatapi")```,
         
-        or
+    
+    or
+    
+    
+    
     b.  Copy and initialize the necessary functions.
 
 There are two ways to use the package.
@@ -42,7 +44,7 @@ There are two ways to use the package.
 
 You will create these (or have created these) on Coinbase Advance Trading API. Make sure that you protect them (especially your secret key). Information can be found at <https://help.coinbase.com/en/cloud/api/coinbase/key-creation>.
 
-Assign keys as variables in R:
+Assign Keys as variables in R
 
 ``` r
 api_key <- "" # assign the variable api_key in quotes
@@ -54,9 +56,9 @@ pair <- "BTC-USD" # The Pair that you wish to obtain information about.
 
 ## Get Pair Information (BTC-USD in this case)
 
-You will need to know what are the minimum sizes and dollar amounts that you can trade. The following code will provide that for you.
+You will need to know what are the minimum sizes and dollar amounts that you can trade.
 
-First, extract the base and quote currencies from the `pair` supplied above. Could use ETH-USD, or ETH-BTC, or any other pair supported on Coinbase.
+This code will provide that for you.
 
 ``` r
 (base <- unlist(strsplit(pair, split = "-"))[1]) # The first currency listed (BTC in this example) 
@@ -64,7 +66,7 @@ First, extract the base and quote currencies from the `pair` supplied above. Cou
 (quote <- unlist(strsplit(pair, split ="-"))[2]) # The last currency listed (USD in this example)
 ```
 
-Once you have assigned `api_key`, `secret_key` and `pair`, this code run by this function should work. The code in this function (and any other functions) can be examined by navigating to the R folder.
+Once you have assigned `api_key`, `secret_key` and `pair`, this code run by this function should work. The code in the function can be examined by navigating to the R folder.
 
 ``` r
 (pair_info <- rcbatapi::interact_AT_API_keys(api_key = api_key,
@@ -74,7 +76,7 @@ Once you have assigned `api_key`, `secret_key` and `pair`, this code run by this
                                                               pair)))
 ```
 
-`pair_info` contains a lot of useful information; some of it is highlighted below.
+`pair_info` contains a lot of useful information. Some of it is highlighted below
 
 ### Maximum Base Currency Precision Digits
 
@@ -88,10 +90,7 @@ The parenthesis around the expression causes R to print the result. Otherwise, y
 
 ### Maximum Quote Currency Precision Digits
 
-The maximum number of digits that can be used in expressing the dollar quantity.
-
--   If it is two (2), this means it can be expressed to two decimals, for example, \$1.00 or \$1.54.
--   If it is four (4), this means it can be expressed to four decimals places, for example, \$1.0000 or \$1.5454.
+The maximum number of digits that can be used in expressing the dollar quantity. - If it is two (2), this means it can be expressed to two decimals, that is, \$1.00 or \$1.54.
 
 ``` r
 (quote_increment <- -log10(as.numeric(pair_info$quote_increment)))
@@ -99,7 +98,7 @@ The maximum number of digits that can be used in expressing the dollar quantity.
 
 ### Smallest Base Currency Quantity
 
-The smallest quantity of Bitcoin that can be transacted.
+The smallest quantity of Bitcoin that can be transacted
 
 ``` r
 (base_min_size <- pair_info$base_min_size)
@@ -107,7 +106,7 @@ The smallest quantity of Bitcoin that can be transacted.
 
 ### Smallest Quote Currency Quantity
 
-The smallest number of USD that can be transacted. At this point it is one (1), which means a minimum of \$1.00.  This could change in the future.
+The smallest number of USD that can be transacted. At this point is in one (1), which means \$1.00.
 
 ``` r
 (quote_min_size <- pair_info$quote_min_size)
@@ -137,13 +136,13 @@ market_buy <- rcbatapi::interact_AT_API_keys(api_key = api_key,
                                              body = market_buy_payload)
 ```
 
-Note that since `pair` was defined above, it is also possible to use `product_id = pair` as the second argument to `rcbatapi::market_market_ioc_buy`.
+Note that you could also use `product_id = pair` as the second argument to `rcbatapi::market_market_ioc_buy`
 
-If you evaluate the variable `market_buy_payload` after running the first line above, it will provide you with the string that needs to be passed to the API as the body or payload of the POST request.
+If you evaluate the variable `market_buy_payload` after running the first line above, it will provide you with the string that needs to be passed to the API.
 
 ### How to Place a \$1.00 Bitcoin Market Sell Order
 
-Using all the same code from above, a market sell order could also be placed.
+Using all the same code from above.
 
 ``` r
 market_sell_payload <- rcbatapi::market_market_ioc_sell(client_order_id = "", 
@@ -171,7 +170,7 @@ api_key <- ""
 secret_key <- ""
 ```
 
-The following function call will then pull the wallet information and assign this to the `accounts` variable.
+The following code will then pull the wallet information and assign this to the `accounts` variable.
 
 ``` r
 (accounts <- rcbatapi::interact_AT_API_keys(api_key = api_key,
@@ -180,11 +179,11 @@ The following function call will then pull the wallet information and assign thi
                                             reqPath = "/accounts"))
 ```
 
-Can also `Get Accounts` using paginations and cursor if `has_next` is true. This code will not work if `has_next` is false.
+Can also `Get Accounts` using paginations and cursor if `has_next` is true. This code will not work is `has_next` is false.
 
 ``` r
-limit  <- 49  # Should be an integer.
-cursor <- "8" # Should be a string.
+limit  <- 49
+cursor <- "8"
 query <- paste0("?limit=", limit,
                "&cursor=", cursor)
 list_accounts <- rcbatapi::interact_AT_API_keys(api_key = api_key,
@@ -197,7 +196,7 @@ list_accounts
 
 ### Get Accounts
 
-Can get uuid by using `accounts$account[[1]]$uuid` or `accounts$account[[2]]$uuid` after having use the code. Depending on the number of currencies linked to wallet and api key and secret key, there may be more numbers that can be added to the `[[x]]` following `accounts$account`. They wallet linked to the keys in this example only granted BTC and USD access.
+Can get uuid by using `accounts$account[[1]]$uuid` or `accounts$account[[2]]$uuid` after having use the code. Depending on the number of currencies linked to wallet and api key and secret key, there will be more numbers that can be added to the [[x]] following `accounts$account`.
 
 ``` r
 (accounts <- rcbatapi::interact_AT_API_keys(api_key = api_key,
@@ -235,7 +234,7 @@ list_products <- rcbatapi::interact_AT_API_keys(api_key = api_key,
 
 ### Get Products
 
-Edit the string in `product_id`.
+Edit the string in `product_id`
 
 ``` r
 product_id <- "BTC-USD"
@@ -250,7 +249,7 @@ get_product
 
 ### Get Product Candles
 
-Chose the desired product_id, start date ("YYYY-MM-DD HH:MM:SS TZ"), end date ("YYYY-MM-DD  HH:MM:SS TZ"), and granularity (ONE_MINUTE, FIVE_MINUTE, FIFTEEN_MINUTE, THIRTY_MINUTE, ONE_HOUR, TWO_HOUR, SIX_HOUR, or ONE_DAY).
+Chose the desired product, start date ("YYYY-MM-DD"), end date ("YYYY-MM-DD"), and granularity (ONE_MINUTE, FIVE_MINUTE, FIFTEEN_MINUTE, THIRTY_MINUTE, ONE_HOUR, TWO_HOUR, SIX_HOUR, or ONE_DAY)
 
 Edit the strings in `product_id`, `start`, `end`, and `granularity`.
 
@@ -293,7 +292,7 @@ get_market_trades <- rcbatapi::interact_AT_API_keys(api_key = api_key,
 get_market_trades
 ```
 
-## Fees
+# Fees
 
 ### Get Transactions Summary
 
