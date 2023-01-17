@@ -1,4 +1,4 @@
-# Examples of how to use the package
+# Use of Package rcbatapi
 
 ## Introduction
 
