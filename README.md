@@ -20,7 +20,13 @@ It is also hoped that this documentation may assist with specification questions
 
 4.  Either
 
-    a.  Install `rcbatapi` package, or
+    a.  Install `rcbatapi` package 
+        -  First, install the package devtools in R 
+        ```install.packages("devtools")```
+        -  Then 
+        ```devtools::install_github(repo = "Squirrel-hue/rcbatapi")```,
+        
+        or
     b.  Copy and initialize the necessary functions.
 
 There are two ways to use the package.
