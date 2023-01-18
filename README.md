@@ -46,6 +46,8 @@ There are two ways to use the package.
 
 You will create these (or have created these) on Coinbase Advance Trading API. Make sure that you protect them (especially your secret key). Information can be found at <https://help.coinbase.com/en/cloud/api/coinbase/key-creation>.
 
+Make sure that you have the appropriate permission to access the desired currencies and endpoints for your wallet keys.
+
 Assign keys as variables in R:
 
 ``` r
