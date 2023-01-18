@@ -2,7 +2,7 @@
 #'
 #' In this version of the \code{authentication} function, the api key(s) and the
 #'  secret key(s) for a wallet are stored internally in the function.
-#'
+  #'
 #' Note: Will need to edit this to add the appropriate api_key(s) and
 #' secret_key(s) for the relevant wallet(s). Otherwise, it will not work.
 #'
@@ -59,6 +59,8 @@ authentication_int <- function(wallet = c("ADA", "ATOM", "BTC", "DOGE",
 }
 
 #' Authentication Process for Coinbase Advanced Trading API
+#'
+#' This is identical to the function \code{authentication_int}
 #'
 #' Note: Will need to edit this to add the appropriate api_key(s) and
 #' secret_key(s) for the relevant wallet(s)
