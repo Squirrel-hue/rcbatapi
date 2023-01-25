@@ -34,9 +34,7 @@ Then
 ``` r
 devtools::install_github(repo = "Squirrel-hue/rcbatapi")
 ```
-        
-    
-    
+ 
 There are two ways to use the package.
 
 1.  Have a string of function to obtain the desired behavior (demonstrated below for market orders and many other endpoints).
@@ -160,6 +158,27 @@ market_sell <- rcbatapi::interact_AT_API_keys(api_key = api_key,
                                               reqPath = "/orders",
                                               body = market_sell_payload)
 ```
+
+### Limit Order
+
+A limit order can be placed by using the following syntax:
+
+The following has not be extensively tested, but should be close to working.  I will check it further an updated as needed:
+
+``` r
+limit_buy_payload <- limit_limit_gtc(client_order_id = "", # The client order number is not needed; a random one will be generated.
+                            product_id = "BTC-USD", 
+                            side = "BUY"          # Can also use "buy", "B" or "b" for buy order
+                            base_size = 0.000005, # The amount of bitcoin to purchase, in Satoshis
+                            limit_price = 22000)  # The maximum price of Bitcoin you are willing to pay{
+
+limit_buy <- rcbatapi::interact_AT_API_keys(api_key = api_key, 
+                                              secret_key = secret_key,
+                                              method = "POST",
+                                              reqPath = "/orders",
+                                              body = limit_buy_payload)
+```
+
 
 ## Accounts
 
