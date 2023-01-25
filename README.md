@@ -218,6 +218,7 @@ account_uuid <- accounts$account[[1]]$uuid # Select this one, or
 
 # Make sure you select a uuid; the last command will only have an empty string
 # You can uncomment (remove the leading "#") to select different lines.
+
 reqPath <- paste0("/accounts/", account_uuid)
 get_account <- rcbatapi::interact_AT_API_keys(api_key = api_key,
                                secret_key = secret_key,
