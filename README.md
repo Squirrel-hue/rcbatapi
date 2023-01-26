@@ -1,4 +1,4 @@
-# Use of Package rcbatapi
+# Overview of Package rcbatapi
 
 ## Introduction
 
