@@ -63,6 +63,29 @@ secret_key <- rstudioapi::askForPassword(prompt = "Please Provide API Secret Key
 pair <- "BTC-USD" # The Pair that you wish to obtain information about.
 ```
 
+### Manage API Keys with Credential Manager
+
+Alternatively, use a credential manager such as `keyring`:
+
+``` r
+# If necessary, install keyring package
+install.packages("keyring")
+
+# Load the package
+library(keyring)
+
+# Store the wallet, with API Key and secret key
+key_set_with_value(service = "wallet_name", 
+                   username = "API_Key",
+                   password = "secret_key")
+
+# Access secret key in appropriate places in the code.
+keyring::key_get(service = "wallet_name",
+                           "API_Key")
+```
+
+For more information, please refer to the credential manager of your choice.
+
 ## Get Pair Information (BTC-USD in this case)
 
 You will need to know what are the minimum sizes and dollar amounts that you can trade.

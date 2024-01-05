@@ -10,7 +10,7 @@ Maintainer: <gus_borstad@hotmail.com>
 Description: Implements authorization and other functions to trade crypto using 
     the Coinbase Advanced Trading API.  There is a general function that permits
     accessing of API endpoints, as well as functions that assist with the order 
-    endpoints.
+    .endpoints.
     This package is offered as is without any promise or guarantee of suitability
     for any given purpose.  Test it out with small money values.
 URL: https://github.com/Squirrel-hue/rcbatapi

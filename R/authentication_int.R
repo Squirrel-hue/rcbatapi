@@ -1,11 +1,11 @@
 #' Authentication Process for Coinbase Advanced Trading API
 #'
 #' In this version of the \code{authentication} function, the api key(s) and the
-#'  secret key(s) for a wallet are stored internally in the function.
-#'
+#'  secret key(s) for a wallet are stored internally.
 #'
 #' Note: Will need to edit this to add the appropriate api_key(s) and
-#' secret_key(s) for the relevant wallet(s). Otherwise, it will not work.
+#' secret_key(s) for the relevant wallet(s), preferably using a package like
+#' keyring. Otherwise, it will not work.
 #'
 #' @param wallet Select the wallet (and permissions)
 #' @param method Select whether to send a \code{GET} or \code{POST} request
@@ -21,6 +21,7 @@ authentication_int <- function(wallet = c("ADA", "ATOM", "BTC", "DOGE",
                            body = ""){
 
   if(isTRUE(wallet == "BTC")){
+    # The best way is to handle this with `keyring` or som
     api_key <- "" # need API Key
     secret_key <- "" # need secret API Key
   }else if(isTRUE(wallet == "USD")){
