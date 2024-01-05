@@ -235,7 +235,7 @@ account_uuid <- accounts$account[[1]]$uuid # Select this one, or
 # account_uuid <- accounts$account[[2]]$uuid # or this one
 # account_uuid <- "" # or enter it manually
 
-# Make sure you select a uuid; the last command will only have an empty string
+# Make sure you select a uuid; the last command typed above will only have an empty string
 # You can uncomment (remove the leading "#") to select different lines.
 
 reqPath <- paste0("/accounts/", account_uuid)
@@ -318,7 +318,7 @@ get_market_trades <- rcbatapi::interact_AT_API_keys(api_key = api_key,
 get_market_trades
 ```
 
-# Fees
+## Fees
 
 ### Get Transactions Summary
 
@@ -341,3 +341,5 @@ get_transactions_summary <- rcbatapi::interact_AT_API_keys(api_key = api_key,
                                                            reqPath = reqPath)
 get_transactions_summary
 ```
+
+Note that these functions can be combined together in scripts.  I may also add more endpoints as functions.
