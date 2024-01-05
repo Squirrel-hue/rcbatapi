@@ -21,27 +21,35 @@ authentication_int <- function(wallet = c("ADA", "ATOM", "BTC", "DOGE",
                            body = ""){
 
   if(isTRUE(wallet == "BTC")){
-    # The best way is to handle this with `keyring` or som
+    # The best way is to handle this with `keyring` or some other manager
+    # Add all wallets that you wish you to manage with the authentication
     api_key <- "" # need API Key
-    secret_key <- "" # need secret API Key
+    secret_key <- keyring::key_get(service = wallet,
+                                   username = api_key)
   }else if(isTRUE(wallet == "USD")){
     api_key <- "" # need API Key
-    secret_key <- "" # need secret API Key
+    secret_key <- keyring::key_get(service = wallet,
+                                   username = api_key)
   }else if(isTRUE(wallet == "DOGE")){
     api_key <- "" # need API Key
-    secret_key <- "" # need secret API Key
+    secret_key <- keyring::key_get(service = wallet,
+                                   username = api_key)
   }else if(isTRUE(wallet == "ETH")){
     api_key <- "" # need API Key
-    secret_key <- "" # need secret API Key
+    secret_key <- keyring::key_get(service = wallet,
+                                   username = api_key)
   }else if(isTRUE(wallet == "LTC")){
     api_key <- "" # need API Key
-    secret_key <- "" # need secret API Key
+    secret_key <- keyring::key_get(service = wallet,
+                                   username = api_key)
   }else if(isTRUE(wallet == "ATOM")){
     api_key <- "" # need API Key
-    secret_key <- "" # need secret API Key
+    secret_key <- keyring::key_get(service = wallet,
+                                   username = api_key)
   }else if(isTRUE(wallet == "ADA")){
     api_key <- "" # need API Key
-    secret_key <- "" # need secret API Key
+    secret_key <- keyring::key_get(service = wallet,
+                                   username = api_key)
   }
   timestamp <- format(as.numeric(Sys.time()), digits = 10)
   if (isTRUE(method == "GET")) {
