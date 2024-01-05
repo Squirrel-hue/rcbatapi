@@ -3,7 +3,7 @@
 #' This a function that allows to use "GET" or "POST" methods to interact with
 #' Coinbase API
 #'
-#'Added the "query" after it was loaded
+#' Added the "query" after it was loaded
 #'
 #' @param api_key The api key assigned to the Advanced Trading Wallet
 #' @param secret_key The secret key assigned to the Advanced Trading Wallet
