@@ -372,4 +372,4 @@ get_transactions_summary <- rcbatapi::interact_AT_API_keys(api_key = api_key,
 get_transactions_summary
 ```
 
-Note that these functions can be combined together in scripts.  I may also add more endpoints as functions.
+Note that these code chunks can be combined together in scripts.  I may also add more endpoints as functions.
