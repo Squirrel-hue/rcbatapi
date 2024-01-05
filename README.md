@@ -219,7 +219,7 @@ list_accounts
 
 ### Get Accounts
 
-Can get uuid by using `accounts$account[[1]]$uuid` or `accounts$account[[2]]$uuid` after having use the code. Depending on the number of currencies linked to wallet and api key and secret key, there will be more numbers that can be added to the [[x]] following `accounts$account`.
+Can get uuid by using `accounts$account[[1]]$uuid` or `accounts$account[[2]]$uuid` after having run the above code. Depending on the number of currencies linked to wallet and api key and secret key, there will be more numbers that can be added to the [[x]] following `accounts$account`.
 
 ``` r
 (accounts <- rcbatapi::interact_AT_API_keys(api_key = api_key,
