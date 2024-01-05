@@ -49,10 +49,8 @@ Make sure that you have the appropriate permission to access the desired currenc
 Assign keys as variables in R:
 
 ``` r
-api_key <- "" # assign the variable api_key in quotes
-
-secret_key <- "" # assign the variable secret_key in quotes
-
+api_key <- rstudioapi::askForPassword(prompt = "Please Provide API Key")
+secret_key <- rstudioapi::askForPassword(prompt = "Please Provide API Secret Key")
 pair <- "BTC-USD" # The Pair that you wish to obtain information about.
 ```
 

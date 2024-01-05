@@ -22,6 +22,9 @@ authentication(
 \code{"POST"}}
 }
 \description{
+This is identical to the function \code{authentication_int}
+}
+\details{
 Note: Will need to edit this to add the appropriate api_key(s) and
 secret_key(s) for the relevant wallet(s)
 }
