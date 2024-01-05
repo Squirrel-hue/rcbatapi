@@ -1,7 +1,7 @@
 Package: rcbatapi
 Type: Package
 Title: Wrapper for R Coinbase Advanced Trading API 
-Version: 0.1.1
+Version: 0.1.2
 Authors@R: 
     person("Gustav", "Borstad", 
            email = "gus_borstad@hotmail.com",
