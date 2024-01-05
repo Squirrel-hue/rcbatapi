@@ -163,7 +163,7 @@ market_sell <- rcbatapi::interact_AT_API_keys(api_key = api_key,
 
 A limit order can be placed by using the following syntax:
 
-The following has not be extensively tested, but should be close to working.  I will check it further an updated as needed:
+The following has not be extensively tested, but should be close to working.  I will check it further and update as appropriate:
 
 ``` r
 limit_buy_payload <- limit_limit_gtc(client_order_id = "", # The client order number is not needed; a random one will be generated.

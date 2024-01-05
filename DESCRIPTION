@@ -6,7 +6,7 @@ Authors@R:
     person("Gustav", "Borstad", 
            email = "gus_borstad@hotmail.com",
            role = c("aut", "cre"))
-Maintainer: The package maintainer <gus_borstad@hotmail.com>
+Maintainer: <gus_borstad@hotmail.com>
 Description: Implements authorization and other functions to trade crypto using 
     the Coinbase Advanced Trading API.  There is a general function that permits
     the accessing of API endpoints, as well as functions that assist with the 
