@@ -18,12 +18,21 @@ The package name represents "R Coinbase Advanced Trade API."
 
 4.  Either
 
-    a.  Install `rcbatapi` package, or
-    b.  Copy and initialize the necessary functions.
+  a.  Install `rcbatapi` package, or
+  b.  Copy and initialize the necessary functions, and load the following packages (after installing if necessary):
+    
+    ``` r
+    #install.packages("digest")
+    #install.packages("httr")
+    #install.packages("keyring")
 
+    library(digest)
+    library(httr)
+    library(keyring)
+    ```
 ### If you choose to install the package `rcbatapi`
     
-First, install the package devtools in R 
+First, if necessary install the package devtools in R (only needed once on a sytem):
     
 ``` r
 install.packages("devtools")
