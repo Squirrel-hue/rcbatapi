@@ -109,7 +109,7 @@ Once you have assigned `api_key`, `secret_key` and `pair`, the code run by this 
                                                               pair)))
 ```
 
-`pair_info` contains a lot of useful information. Some of it is highlighted below
+`pair_info` contains a lot of useful information. Some of it is highlighted below.
 
 ### Maximum Base Currency Precision Digits
 
