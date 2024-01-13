@@ -76,7 +76,7 @@ install.packages("keyring")
 library(keyring)
 
 # Store the wallet, with API Key and secret key
-key_set_with_value(service = "wallet_name", 
+keyring::key_set_with_value(service = "wallet_name", 
                    username = "API_Key",
                    password = "secret_key")
 
