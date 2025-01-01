@@ -1,7 +1,8 @@
 #' Authentication Process for Coinbase Advanced Trading API
 #'
 #' In this version of the \code{authentication} function, the api key(s) and the
-#'  secret key(s) for a wallet are stored internally.
+#' secret key(s) for a wallet are stored internally. This does not seem like the
+#' the best approach.
 #'
 #' Note: Will need to edit this to add the appropriate api_key(s) and
 #' secret_key(s) for the relevant wallet(s), preferably using a package like
